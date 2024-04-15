@@ -1,0 +1,43 @@
+<div class="container">
+  <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+  @if(loadingPage) {
+    <div class="flex justify-content-center">
+      <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+    </div>
+  } @else {
+    <form [formGroup]="taskForm">
+      <div class="grid">
+        <div class="col-12 md:col-6">
+          <label for="">Título</label>
+          <input type="text" class="w-full" pInputText formControlName="title" />
+        </div>
+        <div class="col-12 md:col-6">
+          <label for="">Status</label>
+          <p-dropdown [options]="optionStatus" formControlName="status" optionLabel="label" optionValue="value" styleClass="w-full"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6">
+          <label for="">Data de criação</label>
+          <p-calendar [showIcon]="true" [iconDisplay]="'input'" dateFormat="dd/mm/yy" formControlName="startDate" styleClass="w-full"></p-calendar>
+        </div>
+        <div class="col-12 md:col-6">
+          <label for="">Data de conclusão</label>
+          <p-calendar [showIcon]="true" [iconDisplay]="'input'" dateFormat="dd/mm/yy" formControlName="completeDate" styleClass="w-full" [minDate]="taskForm.controls.startDate.value" dataType="string"></p-calendar>
+        </div>
+        <div class="col-12">
+          <label for="">Descrição</label>
+          <textarea rows="5" cols="60" pInputTextarea class="w-full" formControlName="description"></textarea>
+        </div>
+        <div class="col-12">
+          @if(!edit) {
+            <p-button label="Criar Tarefa" severity="success" (onClick)="saveTask()"></p-button>
+          } @else {
+            <p-button label="Editar Tarefa" severity="success" (onClick)="saveTask()"></p-button>
+          }
+        </div>
+      </div>
+    </form>
+  }
+
+
+</div>
+

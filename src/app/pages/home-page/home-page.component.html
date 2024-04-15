@@ -1,0 +1,27 @@
+<div class="header mb-5">
+  <h2>Lista de tarefas:</h2>
+  <div class="header__filter">
+    <div class="flex align-items-center">
+      <p-radioButton name="task_filter" value="all" [(ngModel)]="filter" (onClick)="filterTasks(filter)" inputId="all"></p-radioButton>
+      <label for="all" class="ml-2 all">Todas</label>
+    </div>
+    <div class="flex align-items-center">
+      <p-radioButton name="task_filter" value="pending" [(ngModel)]="filter" (onClick)="filterTasks(filter)" inputId="pending"></p-radioButton>
+      <label for="pending" class="ml-2 pending">Pendente</label>
+    </div>
+    <div class="flex align-items-center">
+      <p-radioButton name="task_filter" value="in_progress" [(ngModel)]="filter" (onClick)="filterTasks(filter)" inputId="in_progress"></p-radioButton>
+      <label for="in_progress" class="ml-2 in_progress">Em andamento</label>
+    </div>
+    <div class="flex align-items-center">
+      <p-radioButton name="task_filter" value="completed" [(ngModel)]="filter" (onClick)="filterTasks(filter)" inputId="completed"></p-radioButton>
+      <label for="completed" class="ml-2 completed">Concluída</label>
+    </div>
+  </div>
+</div>
+
+@for (task of taskList; track task.title) {
+<card-task-list [task]="task" (deleteTask)="setTasks()"></card-task-list>
+} @empty {
+<p class="text-center">Opa! Não encontramos nenhuma atividade.</p>
+}

@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__filter {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 690px) {
+  .header {
+    flex-direction: column;
+    align-content: center;
+
+    &__filter {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}

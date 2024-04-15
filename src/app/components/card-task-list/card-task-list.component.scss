@@ -1,0 +1,9 @@
+.card-task {
+  background: white;
+  width: 100%;
+  border-top: solid 4px var(--primary-color);
+
+  &__subtitle {
+    font-size: 0.8rem;
+  }
+}

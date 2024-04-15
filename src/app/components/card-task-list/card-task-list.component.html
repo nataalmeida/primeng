@@ -1,0 +1,33 @@
+<div class="card-task shadow-1 border-round p-3 mb-3">
+  <p-confirmDialog></p-confirmDialog>
+  <div class="card-task__header flex justify-content-between align-content-center">
+    <div class="card-task__title">
+      @if(task.status == 'pending') {
+         <h3 class="m-0"><i class="pi pi-clock"></i> {{task.title}}</h3>
+      }@else if(task.status == 'in_progress') {
+        <h3 class="m-0"><i class="pi pi-bolt"></i> {{task.title}}</h3>
+      }@else if(task.status == 'completed') {
+        <h3 class="m-0"><i class="pi pi-check"></i> {{task.title}}</h3>
+      }
+      <div class="card-task__subtitle">
+        Status:
+        @if(task.status == 'pending') {
+          Pendente
+        }@else if(task.status == 'in_progress') {
+          Em andamento
+        }@else if(task.status == 'completed') {
+          Conluída
+        }
+      </div>
+    </div>
+    <div>
+      <button #btn type="button" pButton icon="pi pi-file-edit" [rounded]="true" [text]="true" (click)="menu.toggle($event)"></button>
+      <p-tieredMenu #menu [model]="items" [popup]="true"></p-tieredMenu>
+    </div>
+  </div>
+
+  <div class="card-task__body">
+    <p>{{task.description}}</p>
+  </div>
+  <div class="card-task__footer"></div>
+</div>
