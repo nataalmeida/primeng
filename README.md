@@ -1,4 +1,4 @@
-# Pitang Teste
+# Primeng Teste
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.4. Ele precisa da versão mais recente do NodeJS para funcionar.
 
